@@ -1,0 +1,47 @@
+﻿<Page x:Class="ShopWpfApp.View.Pages.Tovar.TovarMainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ShopWpfApp.View.Pages.Tovar"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Loaded="Page_Loaded"
+      Title="TovarMainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.33*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <StackPanel  Name="adminPanel" Orientation="Horizontal">
+                <Button />
+                <Button Click="AddClick" Content="Создать" Background="#FFF3C98B" Foreground="Black" FontFamily="Arimo" FontWeight="Bold" FontStyle="Italic" />
+                <Button Click="EditClick" Content="Изменить" Background="#FFF3C98B" FontFamily="Arimo" FontWeight="Bold" FontStyle="Italic" Foreground="Black" />
+                <Button Width="auto" Click="DelClick" Content="Удалить" Background="#FFF3C98B" Foreground="Black" FontFamily="Arimo" FontWeight="Bold" FontStyle="Italic"  />
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="Поиск:" />
+                    <TextBox Name="SearchTextBox" TextChanged="TextBox_TextChanged" Width="100" />
+
+                </StackPanel>
+               
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Width="auto" Click="ExcelClick" Content="Экспорт в Excel" Background="#FFF3C98B" Foreground="Black" FontFamily="Arimo" FontWeight="Bold" FontStyle="Italic"  />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <DataGrid AutoGenerateColumns="False" Name="DGrid" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" FontFamily="Arimo" FontStyle="Italic" />
+                    <DataGridTextColumn Header="Количество" Binding="{Binding Amount}" FontFamily="Arimo" FontStyle="Italic" />
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}" FontFamily="Arimo" FontWeight="Normal" FontStyle="Italic" />
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+    </Grid>
+</Page>

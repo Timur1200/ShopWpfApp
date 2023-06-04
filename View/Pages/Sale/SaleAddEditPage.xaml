@@ -1,0 +1,37 @@
+﻿<Page x:Class="ShopWpfApp.View.Pages.Sale.SaleAddEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ShopWpfApp.View.Pages.Sale"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Loaded="Page_Loaded"
+      Title="SaleAddEditPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <StackPanel Margin="5">
+                <TextBlock Name="TBlockId" />
+                <TextBlock Name="TBlockSum" />
+                <TextBlock Text="Товар:" FontFamily="Arimo" FontWeight="Bold" FontStyle="Italic" />
+                <ComboBox IsTextSearchEnabled="False" IsEditable="True" TextBoxBase.TextChanged="TovarCBox_TextChanged"  Name="TovarCBox" SelectedItem="{Binding Material}" DisplayMemberPath="FullName"  />
+                <TextBlock Text="Количество" FontFamily="Arimo" FontWeight="Bold" FontStyle="Italic" />
+                <TextBox Text="{Binding Amount}" />
+                <Button Click="AddClick" Content="Сохранить" Background="#FFF3C98B" Foreground="Black" FontFamily="Arimo" FontWeight="Bold" FontStyle="Italic" />
+                <Button Click="ReloadClick" Content="Новый" Background="#FFF3C98B" Foreground="Black" FontFamily="Arimo" FontWeight="Bold" FontStyle="Italic" />
+                <Button  Margin="0,20" Click="DelClick" Content="Удалить" FontFamily="Arimo" FontWeight="Bold" FontStyle="Italic" Foreground="Black" Background="#FFF3C98B" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Margin="10" Grid.Column="1">
+            <ListBox SelectionChanged="SelectedClick" DisplayMemberPath="Name" Name="TovarLBox" />
+        </Grid>
+
+    </Grid>
+</Page>
